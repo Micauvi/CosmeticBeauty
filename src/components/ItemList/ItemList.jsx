@@ -1,9 +1,10 @@
 import React from "react";
-import Item from "./Item";
+import Item from "../Item/Item";
 
 const ItemList = function ({ data }) {
   return data.map(({ id, categoria, nombre, descripcion, imagen, precio }) => (
     <Item
+      
       id={id}
       categoria={categoria}
       nombre={nombre}

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import ItemList from "./ItemList";
-import { data } from "../data";
+import ItemList from "../ItemList/ItemList";
+import { data } from "../../data";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const id = useParams();
-  console.log(id);
+  // console.log(id);
 
   console.log(data.categoria);
   useEffect(() => {
