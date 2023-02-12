@@ -18,13 +18,13 @@ const ItemCount = ({ initial, stock, onAdd }) => {
       <button className="botones" disabled={count <= 1} onClick={decrease}>
         -
       </button>
-      <span>{count}</span>
+      <span className="fs-5 mx-3">{count}</span>
       <button className="botones" disabled={count >= stock} onClick={increase}>
         +
       </button>
       <div>
         <button
-          className="botones"
+          className="botones ms-5"
           disabled={stock <= 0}
           onClick={() => onAdd(count)}
         >

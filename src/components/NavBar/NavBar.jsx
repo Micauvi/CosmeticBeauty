@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
+import logo from "../../assets/cosmetic.webp"
 
 const NavBar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navBar d-flex justify-content-evenly bd-highlight ">
         <Link to="/">
-          <img className="logo" src="./src/assets/cosmetic.webp" alt="" />
+          <img className="logo" src={logo} alt="" />
         </Link>
         <button
           className="navbar-toggler"
@@ -30,7 +31,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <Link
-                to="/categoria/crema"
+                to="/category/crema"
                 className="nav-link active"
                 aria-current="page"
               >
@@ -39,7 +40,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <Link
-                to="/categoria/maquillajes"
+                to="/category/maquillajes"
                 className="nav-link active"
                 aria-current="page"
               >

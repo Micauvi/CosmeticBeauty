@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import ItemList from "../ItemList/ItemList";
+import ItemListContainer from "../ItemListContainer/ItemListContainer";
 
-function ControlledCarousel() {
+function ControlledCarousel({ data }) {
   const [index, setIndex] = useState(0);
 
   return (
     <div>
-      <div id="carouselExample" className="carousel slide ">
+      <div id="carouselExample" className="carousel slide w-100">
         <div className="carousel-inner">
           <div className="carousel-item active ">
             <img
               src="../src/assets/imgheader1.jpg"
-              className="d-block w-100 "
+              className="d-block w-100 i"
               alt="..."
             />
           </div>
@@ -35,7 +37,10 @@ function ControlledCarousel() {
           data-bs-target="#carouselExample"
           data-bs-slide="prev"
         >
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden">Previous</span>
         </button>
         <button
@@ -44,10 +49,14 @@ function ControlledCarousel() {
           data-bs-target="#carouselExample"
           data-bs-slide="next"
         >
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+      <ItemListContainer data={data} />
     </div>
   );
 }

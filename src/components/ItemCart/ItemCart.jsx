@@ -1,42 +1,42 @@
-import React from 'react'
-import { useCartContext } from '../../context/CartContext'
+import React from "react";
+import { useCartContext } from "../../context/CartContext";
 
-
-const ItemCart = ({product}) => {
-    const {removeProduct} = useCartContext()
-console.log('product:',product)
+const ItemCart = ({ product }) => {
+  const { removeProduct } = useCartContext();
+  
   return (
     <div>
-        <img src={product.imagen} alt="" />
-        <div>
-            <p>{product.nombre}</p>
-            <p>Precio por unidad:${product.precio}</p>
-            <p>Subtotal:${product.quantity * product.precio}</p>
-            <button onClick={()=> removeProduct(product.id)}>Eliminar</button>
+      <div className="d-flex shadow p-6 mb-3 ">
+        <img
+          src={product.image}
+          className="w-25 align-item-center shadow p-6 mb-3 "
+          alt="..."
+        />
+        <div className="card-body cards">
+          <p className="card-title d-flex justify-content-center mb-5 fs-3">
+            Producto: {product.nombre}
+          </p>
+          <p className="card-text d-flex justify-content-center mb-5 fs-5">
+            Precio: ${product.precio}
+          </p>
+          <p className="card-text d-flex justify-content-center fs-4 mb-5">
+            <small className="text-muted">Cantidad: {product.quantity}</small>
+          </p>
+          <p className="card-text d-flex justify-content-center fs-4 mb-5">
+            <small className="text-muted">
+              Subtotal: ${product.quantity * product.precio}
+            </small>
+          </p>
+          <button
+            className=" botones"
+            onClick={() => removeProduct(product.id)}
+          >
+            Eliminar
+          </button>
         </div>
+      </div>
     </div>
-  )
-}
-// const ItemCart = ({product}) => {
-//     const {removeProduct} = useCartContext()
-  
-//     let subtotal = product.quantity * product.item.precio;
-//     if (isNaN(subtotal)) {
-//       subtotal = 0;
-//     }
-  
-//     return (
-//       <div>
-//           <img src={product.item.imagen} alt="" />
-//           <div>
-//               <p>{product.item.nombre}</p>
-//               <p>Precio por unidad: ${product.item.precio}</p>
-//               <p>Subtotal: ${subtotal}</p>
-//               <button onClick={()=> removeProduct(product.item.id)}>Eliminar</button>
-//           </div>
-//       </div>
-//     )
-//   }
-  
+  );
+};
 
-export default ItemCart
+export default ItemCart;

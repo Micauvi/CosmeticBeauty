@@ -1,22 +1,20 @@
-.navBar{
+.navBar {
   background-color: white;
 }
-.logo{
-
-width: 5rem;
+.logo {
+  width: 5rem;
 }
-.carrito{
+.carrito {
   width: 2rem;
 }
-.listContainer{
+.listContainer {
   background-color: rgb(243, 243, 234);
 }
 
-
 .botones {
   min-width: 130px;
-  height: 40px;
-  color: rgb(44, 1, 1);
+  height: 50px;
+  color: rgb(93, 3, 3);
   padding: 5px 10px;
   font-weight: bold;
   cursor: pointer;
@@ -27,7 +25,7 @@ width: 5rem;
   border-radius: 5px;
   border: none;
   background: #ff6392;
-  box-shadow: 0 5px #ff0a78;
+  box-shadow: 0 5px #f0a8c8;
 }
 .botones:hover {
   box-shadow: 0 3px #ff0a78;
@@ -36,4 +34,10 @@ width: 5rem;
 .botones:active {
   box-shadow: 0 0 #ff0a78;
   top: 5px;
+}
+.cards {
+  background: linear-gradient(rgb(238, 158, 185), rgba(255, 192, 203, 0.76));
+  border-radius: 10px;
+  box-shadow:thistle;
+
 }

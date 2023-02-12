@@ -1,51 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
-import { Link, useLocation, useParams } from "react-router-dom";
-import { data } from "../../data";
-import ItemCount from "../ItemCount/ItemCount";
-import { useCartContext } from "../../context/CartContext";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
-  
-  const [goToCart, setGoToCart] = useState(false);
-  const { addProduct } = useCartContext();
-  const { id } = useParams();
-  const itemId = useLocation().pathname.split("/")[1];
-  const item = data.find((data) => data.id == itemId);
+  const [data, setData] = useState({});
 
-  const onAdd = (quantity) => {
-    setGoToCart(true);
-    addProduct(data, quantity);
+  const { detailId } = useParams();
+
+  useEffect(() => {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve
+        }, 600)
+    })
+    promise.then((result) => {
+        setData(result)
+    })
+},[])
+  
+  const spinner = () => {  
+    return (
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   };
+  useEffect(() => {
+    const querydb = getFirestore();
+    const queryDoc = doc(querydb, "products", detailId);
+    console.log(queryDoc);
+
+    getDoc(queryDoc).then((res) => setData({ id: res.id, ...res.data() }));
+  }, [detailId]);
 
   return (
     <div>
-      <div className="card mb-3 w-25">
-        <img src={item.imagen} className="card-img-top w-25 " alt="..." />
-        <div className="card-body ">
-          <h5 className="card-title d-flex justify-content-center">
-            {item.nombre}
-          </h5>
-          <p className="card-text d-flex justify-content-center">
-            {item.descripcion}
-          </p>
-          <p className="card-text d-flex justify-content-center">
-            <small className="text-muted">${item.precio}</small>
-          </p>
-        </div>
-      </div>
-      {goToCart ? (
-        <div className="justify-content-evenly d-flex fs-5">
-          <Link to="/" style={{ textDecoration: "none" }}>
-            Seguir comprando
-          </Link>
-          <Link to="/cart" style={{ textDecoration: "none" }}>
-            Pagar
-          </Link>
-        </div>
-      ) : (
-        <ItemCount initial={1} stock={5} onAdd={onAdd} />
-      )}
+      {data.id ? <ItemDetail data={data}/> : spinner()}
+      
     </div>
   );
 };

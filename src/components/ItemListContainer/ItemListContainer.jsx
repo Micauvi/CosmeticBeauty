@@ -1,25 +1,43 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
-import { data } from "../../data";
+
 import { useParams } from "react-router-dom";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 const ItemListContainer = () => {
-  const [productos, setProductos] = useState([]);
-  const id = useParams();
-  // console.log(id);
+  const [data, setData] = useState([]);
+  const { categoriaId } = useParams();
 
-  console.log(data.categoria);
   useEffect(() => {
-    if (id && id.categoria) {
-      const item = data.filter((product) => product.categoria === id.categoria);
-      
-      setProductos(item);
-    } else {
-      setProductos(data);
-    }
-  }, [id]);
+    const querydb = getFirestore();
+    const queryCollection = collection(querydb, "products");
+    if (categoriaId) {
+      const queryFilter = query(
+        queryCollection,
+        where("category", "==", categoriaId)
+      );
 
-  return <ItemList data={productos} />;
+      getDocs(queryFilter).then((res) =>
+        setData(
+          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        )
+      );
+    } else {
+      getDocs(queryCollection).then((res) =>
+        setData(
+          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        )
+      );
+    }
+  }, [categoriaId]);
+
+  return <ItemList data={data} />;
 };
 
 export default ItemListContainer;
