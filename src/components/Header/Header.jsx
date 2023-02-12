@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
-import imgheader1 from "../../assets/imgHeader1.jpg"
-import imgheader2 from"../../assets/imgHeader2.jpg"
-import imgheader3 from "../../assets/imgHeader3.jpg"
+import imgheader1 from "../../assets/imgheader1.jpg"
+import imgheader2 from"../../assets/imgheader2.jpg"
+import imgheader3 from "../../assets/imgheader3.jpg"
 
 function ControlledCarousel({ data }) {
   const [index, setIndex] = useState(0);
