@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
+import imgheader1 from "../../assets/imgHeader1.jpg"
+import imgheader2 from"../../assets/imgHeader2.jpg"
+import imgheader3 from "../../assets/imgHeader3.jpg"
 
 function ControlledCarousel({ data }) {
   const [index, setIndex] = useState(0);
@@ -11,21 +14,21 @@ function ControlledCarousel({ data }) {
         <div className="carousel-inner">
           <div className="carousel-item active ">
             <img
-              src="../src/assets/imgheader1.jpg"
+              src={imgheader1}
               className="d-block w-100 i"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
-              src="../src/assets/imgheader2.jpg"
+              src={imgheader2}
               className="d-block w-100"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
-              src="../src/assets/imgheader3.jpg"
+              src={imgheader3}
               className="d-block w-100"
               alt="..."
             />
