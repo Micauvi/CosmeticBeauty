@@ -7,7 +7,7 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { useCartContext } from "../../context/CartContext";
-import Model from "./Model";
+import Model from "./model";
 
 const FormPay = () => {
   const { cart, totalPrice } = useCartContext();
