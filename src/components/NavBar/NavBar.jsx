@@ -6,7 +6,7 @@ import logo from "../../assets/cosmetic.webp"
 const NavBar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navBar d-flex justify-content-evenly bd-highlight ">
+      <nav className="navbar navbar-expand-lg navBar d-flex justify-content-between bd-highlight ">
         <Link to="/">
           <img className="logo" src={logo} alt="" />
         </Link>
@@ -23,13 +23,13 @@ const NavBar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
-            <li className="nav-item">
+          <ul className="navbar-nav mx-auto ">
+            <li className="nav-item mx-5">
               <Link to="/" className="nav-link active" aria-current="page">
                 Inicio
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item mx-5">
               <Link
                 to="/category/crema"
                 className="nav-link active"
@@ -38,7 +38,7 @@ const NavBar = () => {
                 Cuidado de la piel
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item mx-5">
               <Link
                 to="/category/maquillajes"
                 className="nav-link active"
@@ -48,7 +48,7 @@ const NavBar = () => {
               </Link>
             </li>
           </ul>
-          <ul></ul>
+          
         </div>
 
         <CartWidget className="carrito" />

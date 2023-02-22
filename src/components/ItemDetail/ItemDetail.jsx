@@ -24,7 +24,7 @@ const ItemDetail = ({ data }) => {
         />
         <div className="card-body cards">
           <h5 className="card-title d-flex justify-content-center mb-5 fs-3">
-            {data.nombre}
+            {data.nombre.toUpperCase()}
           </h5>
           <p className="card-text d-flex justify-content-center mb-5 fs-5">
             {data.descripcion}

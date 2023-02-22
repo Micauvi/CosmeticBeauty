@@ -16,7 +16,7 @@ const Item = function ({ id, nombre, image }) {
             style={{ objectFit: "cover" }}
           />
           <div className="card-body cards ">
-            <h5 className="card-title m-5 w-75">{nombre}</h5>
+            <h5 className="card-title m-5 w-75">{nombre.toUpperCase()}</h5>
             <Link to={`/${id}`}>
               <button className="botones w-50 m-4">Saber más</button>
             </Link>

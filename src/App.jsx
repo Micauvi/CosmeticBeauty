@@ -8,6 +8,7 @@ import CartProvider from "./context/CartContext";
 import Cart from "./components/ItemCart/Cart";
 import "./firebase/config";
 import FormPay from "./components/buyForm";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           />
           <Route path="/:detailId" element={<ItemDetailContainer />} />
         </Routes>
+        <Footer/>
       </CartProvider>
     </div>
   );

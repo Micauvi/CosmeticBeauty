@@ -14,7 +14,7 @@ const ItemCart = ({ product }) => {
         />
         <div className="card-body cards">
           <p className="card-title d-flex justify-content-center mb-5 fs-3">
-            Producto: {product.nombre}
+            Producto: {product.nombre.toUpperCase()}
           </p>
           <p className="card-text d-flex justify-content-center mb-5 fs-5">
             Precio: ${product.precio}
@@ -28,7 +28,7 @@ const ItemCart = ({ product }) => {
             </small>
           </p>
           <button
-            className=" botones"
+            className="botones align-item-center"
             onClick={() => removeProduct(product.id)}
           >
             Eliminar

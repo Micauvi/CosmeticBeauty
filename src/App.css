@@ -26,6 +26,7 @@
   border: none;
   background: #ff6392;
   box-shadow: 0 5px #f0a8c8;
+  margin-bottom: 30px;
 }
 .botones:hover {
   box-shadow: 0 3px #ff0a78;
@@ -41,3 +42,9 @@
   box-shadow:thistle;
 
 }
+/* footer {
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  
+} */
